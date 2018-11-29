@@ -4,78 +4,82 @@
   </td>
 {{/if}}
 
-<td class='main-link clearfix' colspan="{{titleColSpan}}">
-  {{#if socialStyle}}
-    {{raw "list/topic-list-title" topic=topic socialStyle=socialStyle showTopicPostBadges=showTopicPostBadges}}
-  {{/if}}
-  {{#if showThumbnail}}
-    {{raw "list/topic-thumbnail" topic=topic thumbnails=thumbnails category=category}}
-  {{/if}}
-  <div class="topic-details">
-    {{#unless socialStyle}}
-      {{raw "list/topic-list-title" topic=topic showTopicPostBadges=showTopicPostBadges}}
-      {{#if showCategoryBadge}}
-        {{raw "list/topic-category" category=topic.category}}
-      {{/if}}
-      {{discourse-tags topic mode="list"}}
-    {{/unless}}
+<a href='{{topic.summaryUrl}}' class="project-link"></a>
+<a href='{{topic.summaryUrl}}' class="pinned-project"></a>
 
-    {{#if expandPinned}}
-      {{raw "list/topic-excerpt" topic=topic}}
-    {{/if}}
+<div class="project-card">
 
+  {{raw 'list/topic-meta' likesHeat=likesHeat title=view.title topic=topic}}
+  
+  <div class="project-interactions">
     {{#if socialStyle}}
-      <div class="social-footer">
-        {{#if showActions}}
-          {{raw "list/topic-actions" likeCountDisplay=likeCountDisplay topicActions=topicActions}}
-        {{/if}}
-        {{raw 'list/topic-meta' likesHeat=likesHeat title=view.title topic=topic}}
-        {{raw-plugin-outlet name="topic-list-after-title"}}
+
+      <div class="project-title">
+      {{raw "list/topic-list-title" topic=topic socialStyle=socialStyle showTopicPostBadges=showTopicPostBadges}}
+      {{raw "list/topic-category" category=topic.category}}
       </div>
-    {{else}}
-      {{#if showActions}}
-        {{raw "list/topic-actions" likeCountDisplay=likeCountDisplay topicActions=topicActions}}
-      {{/if}}
-
-      {{raw "list/action-list" topic=topic postNumbers=topic.liked_post_numbers className="likes" icon="heart"}}
     {{/if}}
+
+    {{#if showLikes}}
+    <div class="num likes">
+      {{#if hasLikes}}
+        <a href='{{topic.summaryUrl}}'>
+          {{number topic.like_count}} <i class='fa fa-heart'></i></div>
+        </a>
+      {{/if}}
+    {{/if}}
+
+    {{#if showOpLikes}}
+    <div class="num likes">
+      {{#if hasOpLikes}}
+        <a href='{{topic.summaryUrl}}'>
+          {{number topic.op_like_count}} <i class='fa fa-heart'></i></div>
+        </a>
+      {{/if}}
+    {{/if}}
+
+    {{#if showActions}}
+      {{raw "list/topic-actions" likeCount=likeCount topicActions=topicActions}}
+    {{/if}}
+
+
+
+  {{#if socialStyle}}
+      {{raw-plugin-outlet name="topic-list-social-footer"}}
+  {{/if}}
+
   </div>
-</td>
 
-{{#unless hideCategory}}
-  {{#unless topic.isPinnedUncategorized}}
-    {{raw "list/category-column" category=topic.category}}
-  {{/unless}}
-{{/unless}}
+    
 
-{{#if showPosters}}
-  {{raw "list/posters-column" posters=topic.posters}}
-{{/if}}
+    {{#if showPosters}}
+      {{raw "list/posters-column" posters=topic.posters}}
+    {{/if}}
 
-{{raw "list/posts-count-column" topic=topic}}
+    {{#if showParticipants}}
+      {{raw "list/posters-column" posters=topic.participants}}
+    {{/if}}
 
-{{#if showParticipants}}
-  {{raw "list/posters-column" posters=topic.participants}}
-{{/if}}
+    <span class="num views {{topic.viewsHeat}}"><i class="fa fa-eye"></i> {{number topic.views numberKey="views_long"}} Views</span>
 
-{{#if showLikes}}
-<td class="num likes">
-  {{#if hasLikes}}
-    <a href='{{topic.summaryUrl}}'>
-      {{number topic.like_count}} <i class='fa fa-heart'></i></td>
-    </a>
+  
+
+  {{raw "list/action-list" topic=topic postNumbers=topic.liked_post_numbers className="likes" icon="heart"}}
+</div>
+
+
+  {{#if showThumbnail}}
+      {{raw "list/topic-thumbnail" topic=topic thumbnails=thumbnails category=category}}
   {{/if}}
-{{/if}}
 
-{{#if showOpLikes}}
-<td class="num likes">
-  {{#if hasOpLikes}}
-    <a href='{{topic.summaryUrl}}'>
-      {{number topic.op_like_count}} <i class='fa fa-heart'></i></td>
-    </a>
-  {{/if}}
-{{/if}}
 
-<td class="num views {{topic.viewsHeat}}">{{number topic.views numberKey="views_long"}}</td>
 
-{{raw "list/activity-column" topic=topic class="num" tagName="td"}}
+
+
+
+
+
+
+
+
+

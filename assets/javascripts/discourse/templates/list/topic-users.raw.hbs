@@ -2,7 +2,7 @@
   <div class="inline">
     {{#each topic.posters as |poster|}}
       <a href="{{poster.user.path}}" data-user-card="{{poster.user.username}}" class="{{poster.extras}}">
-        {{avatar poster avatarTemplatePath="user.avatar_template" usernamePath="user.username" imageSize="small"}}
+        {{avatar poster avatarTemplatePath="user.avatar_template" usernamePath="user.username" imageSize="large"}}
       </a>
     {{/each}}
   </div>
