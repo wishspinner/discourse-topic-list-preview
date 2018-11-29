@@ -1,3 +1,8 @@
+$cardheight : 23em;
+$cardmargin : 6px;
+$cardpadding : 11px;
+
+
 .topic-thumbnail {
   float: left;
   padding-right: 15px;
@@ -20,29 +25,6 @@ html:not(.mobile-view) #list-area.social-style, #suggested-topics .social-style 
     float: right;
   }
 
-  .topic-list-item {
-    border-radius: 3px;
-    display: inline-block;
-    width: 100%;
-
-    td:not(.main-link) {
-      display: none;
-    }
-  }
-
-  .topic-list-item-separator {
-    display: inline-block;
-    width: 100%;
-    margin-bottom: 10px;
-
-    td {
-      display: block;
-    }
-  }
-
-  img.thumbnail {
-    max-width: 100%;
-  }
 
   div.inline, span.inline {
     float: none;
@@ -66,9 +48,6 @@ html:not(.mobile-view) #list-area.social-style, #suggested-topics .social-style 
   }
 }
 
-.middot:after {
-  content: '\00B7';
-}
 
 #list-area.social-style .contents, #suggested-topics .social-style .contents {
   .main-link {
@@ -85,22 +64,9 @@ html:not(.mobile-view) #list-area.social-style, #suggested-topics .social-style 
     margin: 7px 0;
   }
 
-  .badge-wrapper.box {
-    margin: 0px;
-  }
-
-  .topic-list-item td {
-    padding: 15px;
-  }
 
   .topic-title {
-    font-size: 1.143em;
-    display: flex;
-    margin-bottom: 5px;
 
-    .link-top-line {
-      flex: 1 1 auto;
-    }
 
     a.title {
       color: $primary;
@@ -111,22 +77,6 @@ html:not(.mobile-view) #list-area.social-style, #suggested-topics .social-style 
       display: inline-block;
     }
 
-    .topic-users {
-      float: right;
-
-      .inline {
-        padding: 0 0 0 5px;
-      }
-    }
-  }
-
-  .topic-replies {
-    cursor: pointer;
-  }
-
-  .topic-excerpt {
-    float: none;
-    display: inline-block;
   }
 
   .topic-meta-social {
@@ -155,31 +105,7 @@ html:not(.mobile-view) #list-area.social-style, #suggested-topics .social-style 
   }
 }
 
-.topic-details {
-  overflow: hidden;
-  padding-top: 1px;
 
-  &:before {
-    float: left;
-  }
-
-  .discourse-tags {
-    float: left;
-    clear: right;
-    margin-top: 5px;
-  }
-
-  .topic-excerpt {
-    margin-top: 2px;
-    padding-right: 10px;
-    overflow: hidden;
-    line-height: 1.3;
-    max-height: 60px;
-    float: left;
-    clear: both;
-    cursor: pointer;
-  }
-}
 
 .main-link .topic-category {
   float: left;
@@ -254,7 +180,7 @@ button.list-button {
 
   &.bookmarked, &.topic-bookmark:hover {
     i.fa-bookmark {
-      color: $tertiary;
+      color: $tertiary; 
     }
   }
 }
@@ -271,26 +197,14 @@ button.list-button {
   }
 }
 
-.category-custom-settings-outlet {
-  .select2-container {
-    width: 100%
-  }
 
-  .input-small {
-    width: 60px;
-  }
-}
-
-.topic-meta {
-  float: right;
-}
 
 .tlp-featured-topics.has-topics {
   display: inline-block;
   width: 100%;
 
   .topics {
-    padding: 0 10px;
+    padding: 0 10px; 
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
@@ -310,11 +224,6 @@ button.list-button {
         img {
           visibility: visible;
         }
-      }
-
-      .title {
-        font-weight: 700;
-        margin-bottom: 7px;
       }
 
       .user {
@@ -359,4 +268,220 @@ button.list-button {
     padding-right: 10px;
     float: right;
   }
+}
+
+
+
+/*  category lists (MAIN LAYOUT - breaks the forum layout into a thumbnail image display with metadata on hover)  */
+
+/* normalize some sloppiness in the plugin's layout */
+
+#list-area.social-style .contents .topic-details {height:0px;}
+#list-area {margin-bottom:0px;}
+.topic-list>tbody {display:block; margin-left:0; margin-right:0;}
+.link-top-line {display:none;}
+html:not(.mobile-view) #list-area.social-style .topic-list-item-separator {display:none;}
+html:not(.mobile-view) #list-area.social-style div.topic-replies, html:not(.mobile-view) #list-area.social-style span.topic-replies {display:none;}
+
+
+/*
+@media (max-width:980px){#list-area.social-style .contents tr.topic-list-item {width:33%;}}
+@media (max-width:425px){#list-area.social-style .contents tr.topic-list-item {width:100%;}}
+*/
+
+#list-area.social-style .contents tr.topic-list-item {display:inline-block; border:none; width:auto; position:relative;}
+#list-area.social-style .contents .topic-thumbnail {display:flex; flex-wrap:wrap; margin:0;}
+#list-area.social-style .contents .topic-list-item td {display:flex; flex-wrap:wrap; position:relative; align-items:center; justify-items:center; margin:0px; padding:$cardmargin; color:#dedede;}
+.topic-list-item img.thumbnail {height:$cardheight !important; flex-grow:1; object-fit:cover; width:auto !important; max-width:100%; margin:$cardmargin; opacity:1; transition:0.42s;}
+
+.like-count, .list-vote-count {color:#ffffff;}
+
+#list-area.social-style .contents tr.topic-list-item img.thumbnail {width:auto; height:100%; }
+#list-area.social-style .contents tr.topic-list-item:hover img.thumbnail {opacity:0.23;}
+
+.topic-meta-data {min-height:45px; align-items:flex-start;}
+
+.latest-topic-list-item {border-bottom:rgba(128,108,102,0.3) 1px solid;}
+
+
+
+/* views and age */
+
+.topic-meta {display:block; position:absolute; z-index:11; opacity:1;}
+span.views_lowercase {display:none;}
+.meta-views {display:none;}
+.age {font-size:0.8em; text-transform:uppercase; padding:11px;}
+.age, .age a {color:#ffffff;}
+
+
+/* likes and bookmarks */
+
+button.list-button.bookmarked i.fa-bookmark, button.list-button.topic-bookmark:hover i.fa-bookmark {color:#eda346;}
+button.list-button.topic-bookmark {
+  display:block;
+  position:absolute;
+  top:11px;
+  right:11px;
+  font-size:1.1em;
+}
+
+
+
+.project-card {
+  display:block;
+  position:absolute;
+  background:transparent;
+  width:100%;
+  top:0;
+  bottom:0;
+  left:0;
+  z-index:3;
+  transition:1.1s;
+  opacity:0;
+}
+
+tr.topic-list-item:hover .project-card {opacity:1;}
+
+.project-interactions {display:block; overflow:auto;}
+.project-link {display:block; position:absolute; z-index:10; height:$cardheight; width:100%;}
+
+.topic-list .posters {
+  display:block;
+  width:100%;
+  text-align:center;
+  z-index:11;
+  margin: $cardpadding;
+  position:absolute;
+  bottom:$cardpadding;
+  left: $cardpadding;
+}
+
+.topic-list .posters>a {
+  display:block;
+  margin:0 auto;
+}
+
+
+button.list-button.topic-like {
+  display:block;
+  width:66px;
+  font-size:2em;
+  z-index:11;
+  margin:99px auto;
+}
+
+
+
+
+/* hidden elements - for now */
+
+#suggested-topics tr .project-card {display:none;}
+
+
+.project-title {
+  display:block;
+  width:60%;
+  float:left;
+}
+
+.topic-list .topic-featured-link {padding:0;}
+
+.topic-title {
+  font-size: .93em;
+  margin-bottom: 0;
+  font-weight:700;
+  text-transform:uppercase;
+  white-space:wrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.topic-statuses {display:none;}
+
+
+.topic-category {
+  display:block;
+  width:100%;
+}
+
+.badge-wrapper.bar span.badge-category {color:#e0beb4; padding:0;}
+
+td.category {display:inline !important; position:absolute !important;}
+
+.badge-wrapper.bar .badge-category-parent-bg, .badge-wrapper.bar .badge-category-bg {display:none; margin:0;}
+
+
+.topic-list .views {
+  display:block;
+  float:left;
+  width:100%;
+  font-size:0.77em;
+  text-align:left;
+  margin:11px 0;
+}
+
+
+.project-title {display:none !important;}
+.topic-list .views {display:none;}
+
+
+/* pinned + featured projects effect */
+
+#suggested-topics tr.pinned .pinned-project, tr .pinned-project {
+  display:none;
+}
+
+
+tr.pinned .pinned-project, tr.pinned .pinned-project::before, tr.pinned .pinned-project::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index:10;
+}
+
+tr.pinned .pinned-project {
+  display:block;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  transition:2.3s;
+}
+
+
+tr.pinned .pinned-project::before, tr.pinned .pinned-project::after {
+  content: '';
+  z-index: 11;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 3px solid #ffffff;
+  -webkit-transform: scale(0.23);
+          transform: scale(0.23);
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+tr.pinned .pinned-project::before {
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+tr.pinned .pinned-project::after {
+  -webkit-transform-origin: right bottom;
+          transform-origin: right bottom;
+  border-top: 0;
+  border-left: 0;
+}
+
+tr.pinned .pinned-project:hover::before,
+tr.pinned .pinned-project:hover::after {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
 }
