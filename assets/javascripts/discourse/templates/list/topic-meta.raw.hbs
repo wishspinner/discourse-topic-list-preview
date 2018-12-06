@@ -2,10 +2,10 @@
 
   <div class="meta-views {{topic.viewsHeat}}">
     {{number topic.views numberKey="views_long"}}
-    <span class="views_lowercase">{{i18n 'views_lowercase' count=topic.views}}</span> <i class="fa fa-eye"></i>
+    <span class="views_lowercase">{{i18n 'views_lowercase' count=topic.views}}</span> {{d-icon 'eye'}}
   </div>
   <div class="{{class}} {{cold-age-class topic.createdAt startDate=topic.bumpedAt class=""}}" title="{{{topic.bumpedAtTitle}}}">
-    <a href="{{topic.lastPostUrl}}"><i class="fa fa-clock-o"></i> {{format-date topic.bumpedAt format="medium-with-ago" noTitle="true"}}</a>
+    <a href="{{topic.lastPostUrl}}">{{d-icon 'clock'}} {{format-date topic.bumpedAt format="medium-with-ago" noTitle="true"}}</a>
   </div>
 
 </div>

@@ -24,7 +24,7 @@
     <div class="num likes">
       {{#if hasLikes}}
         <a href='{{topic.summaryUrl}}'>
-          {{number topic.like_count}} <i class='fa fa-heart'></i></div>
+          {{number topic.like_count}} {{d-icon 'heart'}}</div>
         </a>
       {{/if}}
     {{/if}}
@@ -33,7 +33,7 @@
     <div class="num likes">
       {{#if hasOpLikes}}
         <a href='{{topic.summaryUrl}}'>
-          {{number topic.op_like_count}} <i class='fa fa-heart'></i></div>
+          {{number topic.op_like_count}} {{d-icon 'heart'}}</div>
         </a>
       {{/if}}
     {{/if}}
@@ -60,7 +60,7 @@
       {{raw "list/posters-column" posters=topic.participants}}
     {{/if}}
 
-    <span class="num views {{topic.viewsHeat}}"><i class="fa fa-eye"></i> {{number topic.views numberKey="views_long"}} Views</span>
+    <span class="num views {{topic.viewsHeat}}"> {{d-icon 'eye'}} {{number topic.views numberKey="views_long"}} Views</span>
 
   
 
