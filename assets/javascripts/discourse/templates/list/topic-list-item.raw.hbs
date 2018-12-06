@@ -4,7 +4,7 @@
   </td>
 {{/if}}
 
-<a href='{{topic.summaryUrl}}' class="project-link"></a>
+
 <a href='{{topic.summaryUrl}}' class="pinned-project"></a>
 
 <div class="project-card">
@@ -66,6 +66,9 @@
 
   {{raw "list/action-list" topic=topic postNumbers=topic.liked_post_numbers className="likes" icon="heart"}}
 </div>
+
+
+  <a href='{{topic.summaryUrl}}' class="project-link"></a>
 
 
   {{#if showThumbnail}}
