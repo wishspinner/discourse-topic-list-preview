@@ -6,8 +6,7 @@
 
 register_asset 'stylesheets/previews_common.scss'
 register_asset 'stylesheets/previews_mobile.scss'
-register_svg_icon "heart" if respond_to?(:register_svg_icon)
-register_svg_icon "bookmark" if respond_to?(:register_svg_icon)
+
 
 enabled_site_setting :topic_list_previews_enabled
 
