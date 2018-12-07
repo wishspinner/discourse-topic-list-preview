@@ -6,6 +6,7 @@
 
 register_asset 'stylesheets/previews_common.scss'
 register_asset 'stylesheets/previews_mobile.scss'
+
 register_svg_icon "heart" if respond_to?(:register_svg_icon)
 register_svg_icon "bookmark" if respond_to?(:register_svg_icon)
 
@@ -24,6 +25,13 @@ after_initialize do
       hash = { normal: '', retina: '' }
       thumb.value = ::JSON.generate(hash)
       thumb.save!
+    end
+  end
+
+  module ::TopicPreviews
+    class Engine < ::Rails::Engine
+      engine_name "topic_previews"
+      isolate_namespace TopicPreviews
     end
   end
 
