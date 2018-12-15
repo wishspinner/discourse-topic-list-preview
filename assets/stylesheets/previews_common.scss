@@ -366,8 +366,10 @@ button.list-button.topic-like {
   display:block;
   width:66px;
   font-size:2em;
-  z-index:15;
-  margin:99px auto;
+  left:50%;
+  top:50%;
+  z-index:23;
+  transform:translate(-50%, -50%);
 }
 
 
