@@ -323,6 +323,7 @@ button.list-button.topic-bookmark {
   top:11px;
   right:11px;
   font-size:1.1em;
+  z-index:15;
 }
 
 
@@ -365,7 +366,7 @@ button.list-button.topic-like {
   display:block;
   width:66px;
   font-size:2em;
-  z-index:11;
+  z-index:15;
   margin:99px auto;
 }
 
@@ -444,6 +445,7 @@ td.category {display:inline !important; position:absolute !important;}
   padding:11px 23px;
   margin:42px 0 0 23px;
   border-left:#806c66 3px solid;
+  word-wrap:break-word;
 }
 
 #suggested-topics .topic-excerpt {
