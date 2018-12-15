@@ -343,7 +343,7 @@ button.list-button.topic-bookmark {
 
 tr.topic-list-item:hover .project-card {opacity:1;}
 
-.project-link {display:block; position:absolute; z-index:13; height:17em; width:100%;}
+.project-link {display:block; position:absolute; top:0; z-index:13; height:17em; width:100%;}
 
 .topic-list .posters {
   display:block;
@@ -366,6 +366,7 @@ button.list-button.topic-like {
   display:block;
   width:66px;
   font-size:2em;
+  position:absolute;
   left:50%;
   top:50%;
   z-index:23;
