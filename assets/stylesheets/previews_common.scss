@@ -179,19 +179,19 @@ button.list-button {
   }
 
   &.bookmarked, &.topic-bookmark:hover {
-    i.fa-bookmark {
+    i.fa-bookmark, .d-icon-bookmark {
       color: $tertiary; 
     }
   }
 }
 
 .user-main .list-button {
-  .fa-heart {
+  .fa-heart, .d-icon-heart {
     color: inherit !important;
   }
 
   &.has-like {
-    .fa-heart {
+    .fa-heart, .d-icon-heart {
       color: $love !important;
     }
   }
@@ -342,7 +342,6 @@ button.list-button.topic-bookmark {
 
 tr.topic-list-item:hover .project-card {opacity:1;}
 
-.project-interactions {display:block; overflow:auto;}
 .project-link {display:block; position:absolute; z-index:13; height:17em; width:100%;}
 
 .topic-list .posters {
@@ -425,12 +424,35 @@ td.category {display:inline !important; position:absolute !important;}
 .topic-list .views {display:none;}
 
 
+.topic-list .posters>a:first-of-type img {width:45px; height:45px;}
+.topic-list .posters>a:not(:first-of-type) img{margin:6px; width:33px !important; height:33px !important;}
 /* pinned + featured projects effect */
 
 #suggested-topics tr.pinned .pinned-project, tr .pinned-project {
   display:none;
 }
 
+
+.topic-list.show-thumbnail .topic-excerpt {
+  position:absolute;
+  top:0; 
+  left:0;
+  width:auto;
+  color:#e0beb4;
+  font-size:1em;
+  font-style:italic;
+  padding:11px 23px;
+  margin:42px 0 0 23px;
+  border-left:#806c66 3px solid;
+}
+
+#suggested-topics .topic-excerpt {
+  display:none;
+}
+
+div.topic-thumbnail>a>img.defaultImg .topic-excerpt {
+  font-size:2em;
+}
 
 tr.pinned .pinned-project, tr.pinned .pinned-project::before, tr.pinned .pinned-project::after {
   position: absolute;

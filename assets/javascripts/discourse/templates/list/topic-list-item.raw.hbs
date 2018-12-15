@@ -7,13 +7,12 @@
 
 <a href='{{topic.summaryUrl}}' class="pinned-project"></a>
 
-<div class="project-card">
+<div class="project-card main-link">
 
   {{raw 'list/topic-meta' likesHeat=likesHeat title=view.title topic=topic}}
   
-  <div class="project-interactions">
-    {{#if socialStyle}}
 
+    {{#if socialStyle}}
       <div class="project-title">
       {{raw "list/topic-list-title" topic=topic socialStyle=socialStyle showTopicPostBadges=showTopicPostBadges}}
       {{raw "list/topic-category" category=topic.category}}
@@ -48,7 +47,7 @@
       {{raw-plugin-outlet name="topic-list-social-footer"}}
   {{/if}}
 
-  </div>
+
 
     
 
@@ -71,13 +70,22 @@
   <a href='{{topic.summaryUrl}}' class="project-link"></a>
 
 
+
+
+
+
+
   {{#if showThumbnail}}
       {{raw "list/topic-thumbnail" topic=topic thumbnails=thumbnails category=category}}
   {{/if}}
 
 
-
-
+  <div class="topic-excerpt">
+    {{{dir-span topic.escapedExcerpt}}}
+    {{#if topic.excerptTruncated}}
+      <a href="{{topic.url}}">{{i18n 'read_more'}}</a>
+    {{/if}}
+  </div>
 
 
 

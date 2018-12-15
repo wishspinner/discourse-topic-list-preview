@@ -23,9 +23,13 @@ var previewUrl = function(thumbnails) {
 };
 
 var renderUnboundPreview = function(thumbnails, params) {
+  var defImg = '';
   const url = previewUrl(thumbnails);
   if (!url) return '';
-  if (Discourse.Site.currentProp('mobileView')) {
+  if (url == 'http://pixologic.com/img/zbc-default.jpg') {
+    defImg = ' defaultImg';
+  }
+  if (Discourse.Site.currentProp('mobileView')) {0
     return '<img class="thumbnail" src="' + url + '"/>';
   };
   const attrPrefix = params.isSocial ? 'max-' : '';
@@ -36,7 +40,7 @@ var renderUnboundPreview = function(thumbnails, params) {
   const height = featured_height || category_height || Discourse.SiteSettings.topic_list_thumbnail_height;
   const width = featured_width || category_width || Discourse.SiteSettings.topic_list_thumbnail_width;
   const style = `object-fit:cover;${attrPrefix}height:${height}px;${attrPrefix}width:${width}px`;
-  return '<img class="thumbnail" src="' + url + '" style="' + style + '" />';
+  return '<img class="thumbnail' + defImg + '" src="' + url + '" style="' + style + '" />';
 };
 
 var testImageUrl = function(thumbnails, callback) {
