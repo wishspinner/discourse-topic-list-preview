@@ -7,18 +7,6 @@
 
 <a href='{{topic.summaryUrl}}' class="pinned-project"></a>
 
-<div class="project-card main-link">
-
-  {{raw 'list/topic-meta' likesHeat=likesHeat title=view.title topic=topic}}
-  
-
-    {{#if socialStyle}}
-      <div class="project-title">
-      {{raw "list/topic-list-title" topic=topic socialStyle=socialStyle showTopicPostBadges=showTopicPostBadges}}
-      {{raw "list/topic-category" category=topic.category}}
-      </div>
-    {{/if}}
-
     {{#if showLikes}}
     <div class="num likes">
       {{#if hasLikes}}
@@ -36,6 +24,20 @@
         </a>
       {{/if}}
     {{/if}}
+
+<div class="project-card main-link">
+
+  {{raw 'list/topic-meta' likesHeat=likesHeat title=view.title topic=topic}}
+  
+
+    {{#if socialStyle}}
+      <div class="project-title">
+      {{raw "list/topic-list-title" topic=topic socialStyle=socialStyle showTopicPostBadges=showTopicPostBadges}}
+      {{raw "list/topic-category" category=topic.category}}
+      </div>
+    {{/if}}
+
+
 
     {{#if showActions}}
       {{raw "list/topic-actions" likeCount=likeCount topicActions=topicActions}}
