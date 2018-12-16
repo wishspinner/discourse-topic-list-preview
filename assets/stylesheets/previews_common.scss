@@ -341,8 +341,6 @@ button.list-button.topic-bookmark {
   opacity:0;
 }
 
-tr.topic-list-item:hover .project-card {opacity:1;}
-
 .project-link {display:block; position:absolute; top:0; z-index:13; height:17em; width:100%;}
 
 .topic-list .posters {
@@ -389,7 +387,7 @@ button.list-button.topic-like {
   margin:42px 0 0 23px;
   border-left:#806c66 3px solid;
   word-wrap:break-word;
-  opacity:1;
+  transition:0.2s;
 }
 
 #suggested-topics .topic-excerpt {
@@ -401,8 +399,8 @@ div.topic-thumbnail>a>img.defaultImg .topic-excerpt {
 }
 
 
-
-
+tr.topic-list-item:hover .project-card {opacity:1;}
+tr.topic-list-item:hover .topic-excerpt {opacity:0.3;}
 
 /* hidden elements - for now */
 
