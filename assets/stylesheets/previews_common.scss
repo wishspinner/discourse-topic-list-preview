@@ -374,6 +374,34 @@ button.list-button.topic-like {
 }
 
 
+/* text excerpt that appears on items without featured images */
+
+.topic-list.show-thumbnail .topic-excerpt {
+  position:absolute;
+  top:0; 
+  left:0;
+  width:auto;
+  max-width:69%;
+  color:#e0beb4;
+  font-size:1em;
+  font-style:italic;
+  padding:11px 23px;
+  margin:42px 0 0 23px;
+  border-left:#806c66 3px solid;
+  word-wrap:break-word;
+  opacity:1;
+}
+
+#suggested-topics .topic-excerpt {
+  display:none;
+}
+
+div.topic-thumbnail>a>img.defaultImg .topic-excerpt {
+  font-size:2em;
+}
+
+
+
 
 
 /* hidden elements - for now */
@@ -437,27 +465,7 @@ td.category {display:inline !important; position:absolute !important;}
 }
 
 
-.topic-list.show-thumbnail .topic-excerpt {
-  position:absolute;
-  top:0; 
-  left:0;
-  width:auto;
-  color:#e0beb4;
-  font-size:1em;
-  font-style:italic;
-  padding:11px 23px;
-  margin:42px 0 0 23px;
-  border-left:#806c66 3px solid;
-  word-wrap:break-word;
-}
 
-#suggested-topics .topic-excerpt {
-  display:none;
-}
-
-div.topic-thumbnail>a>img.defaultImg .topic-excerpt {
-  font-size:2em;
-}
 
 tr.pinned .pinned-project, tr.pinned .pinned-project::before, tr.pinned .pinned-project::after {
   position: absolute;
