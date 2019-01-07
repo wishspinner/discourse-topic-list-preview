@@ -306,7 +306,7 @@ html:not(.mobile-view) #list-area.social-style div.topic-replies, html:not(.mobi
 
 #list-area.social-style .contents tr.topic-list-item {display:inline-block; border:none; width:auto; position:relative;}
 #list-area.social-style .contents .topic-thumbnail {display:flex; flex-wrap:wrap; margin:0;}
-#list-area.social-style .contents .topic-list-item td {display:flex; flex-wrap:wrap; position:relative; align-items:center; justify-items:center; margin:0px; padding:$cardmargin; color:$white50;}
+#list-area.social-style .contents .topic-list-item td {display:flex; flex-wrap:wrap; position:relative; align-items:center; justify-items:center; margin:0px; padding:$cardmargin; color:$white;}
 .topic-list-item img.thumbnail {height:$cardheight !important; flex-grow:1; object-fit:cover; width:auto !important; max-width:100%; margin:$cardmargin; opacity:1; transition:0.42s;}
 
 .like-count, .list-vote-count {color:$white;}
@@ -316,7 +316,7 @@ html:not(.mobile-view) #list-area.social-style div.topic-replies, html:not(.mobi
 
 .topic-meta-data {min-height:45px; align-items:flex-start;}
 
-.latest-topic-list-item {border-bottom:rgba(79,84,99,0.3) 1px solid;}
+.latest-topic-list-item {border-bottom:rgba(128,108,102,0.3) 1px solid;}
 
 
 
@@ -326,18 +326,19 @@ html:not(.mobile-view) #list-area.social-style div.topic-replies, html:not(.mobi
 span.views_lowercase {display:none;}
 .meta-views {display:none;}
 .age {font-size:0.8em; text-transform:uppercase; padding:11px;}
-.age, .age a {color:#ffffff;}
+.age, .age a {color:$white;}
 
 
 /* likes and bookmarks */
 
-button.list-button.bookmarked i.fa-bookmark, button.list-button.topic-bookmark:hover i.fa-bookmark {color:$orange;}
+button.list-button.bookmarked i.fa-bookmark, button.list-button.topic-bookmark:hover i.fa-bookmark {color:#eda346;}
 button.list-button.topic-bookmark {
   display:block;
   position:absolute;
   top:11px;
   right:11px;
   font-size:1.1em;
+  z-index:15;
 }
 
 
@@ -355,9 +356,7 @@ button.list-button.topic-bookmark {
   opacity:0;
 }
 
-tr.topic-list-item:hover .project-card {opacity:1;}
-
-.project-link {display:block; position:absolute; z-index:13; height:17em; width:100%;}
+.project-link {display:block; position:absolute; top:0; z-index:13; height:17em; width:100%;}
 
 .topic-list .posters {
   display:block;
@@ -380,12 +379,43 @@ button.list-button.topic-like {
   display:block;
   width:66px;
   font-size:2em;
-  z-index:11;
-  margin:99px auto;
+  position:absolute;
+  left:50%;
+  top:50%;
+  z-index:23;
+  transform:translate(-50%, -50%);
 }
 
 
+/* text excerpt that appears on items without featured images */
 
+.topic-list.show-thumbnail .topic-excerpt {
+  position:absolute;
+  top:0; 
+  left:0;
+  width:auto;
+  max-width:69%;
+  color:$white50;
+  font-size:1em;
+  font-style:italic;
+
+  padding:11px 23px  margin:42px 0 0 23px;
+  border-left:$med 3px solid;
+  word-wrap:break-word;
+  transition:0.2s;
+}
+
+#suggested-topics .topic-excerpt {
+  display:none;
+}
+
+div.topic-thumbnail>a>img.defaultImg .topic-excerpt {
+  font-size:2em;
+}
+
+
+tr.topic-list-item:hover .project-card {opacity:1;}
+tr.topic-list-item:hover .topic-excerpt {opacity:0.3;}
 
 /* hidden elements - for now */
 
@@ -448,26 +478,7 @@ td.category {display:inline !important; position:absolute !important;}
 }
 
 
-.topic-list.show-thumbnail .topic-excerpt {
-  position:absolute;
-  top:0; 
-  left:0;
-  width:auto;
-  color:$white50;
-  font-size:1em;
-  font-style:italic;
-  padding:11px 23px;
-  margin:42px 0 0 23px;
-  border-left:$med 3px solid;
-}
 
-#suggested-topics .topic-excerpt {
-  display:none;
-}
-
-div.topic-thumbnail>a>img.defaultImg .topic-excerpt {
-  font-size:2em;
-}
 
 tr.pinned .pinned-project, tr.pinned .pinned-project::before, tr.pinned .pinned-project::after {
   position: absolute;
