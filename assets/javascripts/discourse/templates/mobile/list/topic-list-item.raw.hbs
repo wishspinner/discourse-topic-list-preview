@@ -1,9 +1,9 @@
 <td>
   {{#if socialStyle}}
-    {{raw "list/topic-list-title" topic=topic socialStyle=socialStyle mobileView=site.mobileView}}
     {{#if showThumbnail}}
       {{raw "list/topic-thumbnail" topic=topic thumbnails=thumbnails}}
     {{/if}}
+    {{raw "list/topic-list-title" topic=topic socialStyle=socialStyle mobileView=site.mobileView}}
   {{else}}
     {{#if showThumbnail}}
       {{raw "list/topic-thumbnail" topic=topic thumbnails=thumbnails}}
